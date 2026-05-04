@@ -1,0 +1,45 @@
+import colorama
+from colorama import Fore, Style
+
+# Inicializa o colorama para funcionar no terminal
+colorama.init()
+
+# 1. Lista de mensagens conforme o enunciado
+mensagens = [
+    "Muito baixo (crítico)",
+    "Baixo",
+    "Médio",
+    "Alto",
+    "Muito alto (alerta)"
+]
+
+# 2. Função para definir a cor e exibir o alerta
+def monitorar_reservatorio(nivel):
+    # O nível 1 corresponde ao índice 0 da lista, o nível 2 ao índice 1, etc.
+    indice = nivel - 1
+    
+    if nivel == 1:
+        print(f"Nível 1: {Fore.RED}{mensagens[indice]}{Style.RESET_ALL}")
+    elif nivel == 2:
+        print(f"Nível 2: {Fore.YELLOW}{mensagens[indice]}{Style.RESET_ALL}")
+    elif nivel == 3:
+        print(f"Nível 3: {Fore.GREEN}{mensagens[indice]}{Style.RESET_ALL}")
+    elif nivel == 4:
+        print(f"Nível 4: {Fore.CYAN}{mensagens[indice]}{Style.RESET_ALL}")
+    elif nivel == 5:
+        print(f"Nível 5: {Fore.BLUE}{mensagens[indice]}{Style.RESET_ALL}")
+    else:
+        print("Erro: Nível inexistente!")
+
+# 3. Simulação do sistema com valores definidos
+print("---------- SISTEMA DE MONITORAMENTO ----------")
+
+# Testando cada nível individualmente para mostrar o funcionamento
+monitorar_reservatorio(1)
+monitorar_reservatorio(2)
+monitorar_reservatorio(3)
+monitorar_reservatorio(4)
+monitorar_reservatorio(5)
+
+print("-----------------------------------------------")
+print("Monitoramento concluído.")
